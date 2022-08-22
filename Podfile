@@ -5,6 +5,9 @@ target 'andFactoryTestApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
+  # Pods for request
+  pod 'Alamofire'
+  
   # Pods for rules-demo
   pod 'SwiftLint'
 
