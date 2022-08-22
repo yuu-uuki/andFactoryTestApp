@@ -17,6 +17,8 @@
 		2A97A58D28B38BCA00AA51D4 /* andFactoryTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A58C28B38BCA00AA51D4 /* andFactoryTestAppUITests.swift */; };
 		2A97A58F28B38BCA00AA51D4 /* andFactoryTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A58E28B38BCA00AA51D4 /* andFactoryTestAppUITestsLaunchTests.swift */; };
 		2A97A59C28B3A2F800AA51D4 /* Multilingual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */; };
+		2A97A59F28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */; };
+		2A97A5A028B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		2A97A58C28B38BCA00AA51D4 /* andFactoryTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = andFactoryTestAppUITests.swift; sourceTree = "<group>"; };
 		2A97A58E28B38BCA00AA51D4 /* andFactoryTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = andFactoryTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multilingual.swift; sourceTree = "<group>"; };
+		2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListTableViewCell.swift; sourceTree = "<group>"; };
+		2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GithubUserListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				2A97A56B28B38BC800AA51D4 /* AppDelegate.swift */,
 				2A97A56D28B38BC800AA51D4 /* SceneDelegate.swift */,
 				2A97A56F28B38BC800AA51D4 /* GithubUserListViewController.swift */,
+				2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */,
+				2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */,
 				2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */,
 				2A97A57128B38BC800AA51D4 /* Main.storyboard */,
 				2A97A57428B38BCA00AA51D4 /* Assets.xcassets */,
@@ -235,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A97A57828B38BCA00AA51D4 /* LaunchScreen.storyboard in Resources */,
+				2A97A5A028B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib in Resources */,
 				2A97A57528B38BCA00AA51D4 /* Assets.xcassets in Resources */,
 				2A97A57328B38BC800AA51D4 /* Main.storyboard in Resources */,
 			);
@@ -264,6 +271,7 @@
 				2A97A59C28B3A2F800AA51D4 /* Multilingual.swift in Sources */,
 				2A97A57028B38BC800AA51D4 /* GithubUserListViewController.swift in Sources */,
 				2A97A56C28B38BC800AA51D4 /* AppDelegate.swift in Sources */,
+				2A97A59F28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift in Sources */,
 				2A97A56E28B38BC800AA51D4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
