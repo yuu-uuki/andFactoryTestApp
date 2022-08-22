@@ -63,7 +63,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="stackView" destination="CtF-ea-H5e" id="mwV-8H-1N9"/>
                 <outlet property="typeLabel" destination="oHf-o4-hG0" id="w5M-wo-NCX"/>
                 <outlet property="userImage" destination="bSz-Nm-8nl" id="Ob2-Wg-nkN"/>
                 <outlet property="userLabel" destination="gDd-TS-c29" id="c5U-VO-YEN"/>

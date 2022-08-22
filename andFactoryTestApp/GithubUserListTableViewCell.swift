@@ -11,7 +11,6 @@ class GithubUserListTableViewCell: UITableViewCell {
   @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var typeLabel: UILabel!
   @IBOutlet weak var userImage: UIImageView!
-  @IBOutlet weak var stackView: UIStackView!
   /// セルID
   static let identifier = "GithubUserListTableViewCell"
   
