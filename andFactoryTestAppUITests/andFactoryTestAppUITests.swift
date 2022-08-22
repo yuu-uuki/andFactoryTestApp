@@ -1,13 +1,13 @@
 //
-//  andFactoryTestAppUITests.swift
-//  andFactoryTestAppUITests
+//  AndFactoryTestAppUITests.swift
+//  AndFactoryTestAppUITests
 //
 //  Created by 田中裕貴 on 2022/08/22.
 //
 
 import XCTest
 
-class andFactoryTestAppUITests: XCTestCase {
+class AndFactoryTestAppUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

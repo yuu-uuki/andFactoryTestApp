@@ -1,13 +1,13 @@
 //
 //  andFactoryTestAppUITestsLaunchTests.swift
-//  andFactoryTestAppUITests
+//  AndFactoryTestAppUITests
 //
 //  Created by 田中裕貴 on 2022/08/22.
 //
 
 import XCTest
 
-class andFactoryTestAppUITestsLaunchTests: XCTestCase {
+class AndFactoryTestAppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

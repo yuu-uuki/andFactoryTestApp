@@ -1,6 +1,6 @@
 //
-//  andFactoryTestAppTests.swift
-//  andFactoryTestAppTests
+//  AndFactoryTestAppTests.swift
+//  AndFactoryTestAppTests
 //
 //  Created by 田中裕貴 on 2022/08/22.
 //
@@ -8,7 +8,7 @@
 import XCTest
 @testable import andFactoryTestApp
 
-class andFactoryTestAppTests: XCTestCase {
+class AndFactoryTestAppTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

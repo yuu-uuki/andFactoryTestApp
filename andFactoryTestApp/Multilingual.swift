@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Titlename {
+/// 画面タイトル名
+public struct Titlename {
   static let listView = "search user"
 }

@@ -28,7 +28,7 @@ class GithubUserListViewController: UIViewController {
   }
 }
 
-//MARK: - tableView処理
+// MARK: - tableView処理
 extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
@@ -46,7 +46,7 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
   
 }
 
-//MARK: - 検索バー処理
+// MARK: - 検索バー処理
 extension GithubUserListViewController: UISearchBarDelegate {
   /// 検索ボタン押下
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -65,4 +65,3 @@ extension GithubUserListViewController {
     navigationItem.title = Titlename.listView
   }
 }
-
