@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct Titlename {
+  static let listView = "search user"
+}
