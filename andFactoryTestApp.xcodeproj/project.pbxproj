@@ -28,6 +28,8 @@
 		2A97A5AF28B652BF00AA51D4 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5AE28B652BE00AA51D4 /* ErrorManager.swift */; };
 		2A97A5B128B6575700AA51D4 /* UIAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5B028B6575700AA51D4 /* UIAlertHelper.swift */; };
 		2A97A5B528B661C100AA51D4 /* URL+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5B428B661C100AA51D4 /* URL+Helper.swift */; };
+		2A97A5BF28B6673400AA51D4 /* GithubUserDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A97A5BE28B6673400AA51D4 /* GithubUserDetailViewController.storyboard */; };
+		2A97A5C228B6676400AA51D4 /* GithubUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5C128B6676400AA51D4 /* GithubUserDetailViewController.swift */; };
 		7A6FE4174C0BF47629CC8AAD /* Pods_andFactoryTestAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC06AF7438950D6AE5CCB5 /* Pods_andFactoryTestAppTests.framework */; };
 		9BF0B3DBFC9A19CBBC275BB6 /* Pods_andFactoryTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C5E9CA631422BC143D9C54 /* Pods_andFactoryTestApp.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,8 @@
 		2A97A5AE28B652BE00AA51D4 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		2A97A5B028B6575700AA51D4 /* UIAlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertHelper.swift; sourceTree = "<group>"; };
 		2A97A5B428B661C100AA51D4 /* URL+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Helper.swift"; sourceTree = "<group>"; };
+		2A97A5BE28B6673400AA51D4 /* GithubUserDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GithubUserDetailViewController.storyboard; sourceTree = "<group>"; };
+		2A97A5C128B6676400AA51D4 /* GithubUserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserDetailViewController.swift; sourceTree = "<group>"; };
 		627D716AF71AC93346F4E685 /* Pods-andFactoryTestAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-andFactoryTestAppTests.debug.xcconfig"; path = "Target Support Files/Pods-andFactoryTestAppTests/Pods-andFactoryTestAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79C5E9CA631422BC143D9C54 /* Pods_andFactoryTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_andFactoryTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85631D1C6F5224A0A7A58343 /* Pods-andFactoryTestAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-andFactoryTestAppTests.release.xcconfig"; path = "Target Support Files/Pods-andFactoryTestAppTests/Pods-andFactoryTestAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				2A97A56B28B38BC800AA51D4 /* AppDelegate.swift */,
 				2A97A56D28B38BC800AA51D4 /* SceneDelegate.swift */,
+				2A97A5C028B6674A00AA51D4 /* GithubUserDetailViewController */,
 				2A97A5B628B6643600AA51D4 /* GithubUserListView */,
 				2A97A5B728B6648500AA51D4 /* APIRequest */,
 				2A97A5B828B664A000AA51D4 /* Multilingual */,
@@ -234,6 +239,7 @@
 			children = (
 				2A97A57628B38BCA00AA51D4 /* LaunchScreen.storyboard */,
 				2A97A57128B38BC800AA51D4 /* GithubUserListViewController.storyboard */,
+				2A97A5BE28B6673400AA51D4 /* GithubUserDetailViewController.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -244,6 +250,14 @@
 				2A97A5A228B3CB5500AA51D4 /* Users.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2A97A5C028B6674A00AA51D4 /* GithubUserDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A5C128B6676400AA51D4 /* GithubUserDetailViewController.swift */,
+			);
+			path = GithubUserDetailViewController;
 			sourceTree = "<group>";
 		};
 		3D44FC45AC97B7C179DFF5F1 /* Frameworks */ = {
@@ -369,6 +383,7 @@
 				2A97A57828B38BCA00AA51D4 /* LaunchScreen.storyboard in Resources */,
 				2A97A5A028B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib in Resources */,
 				2A97A57528B38BCA00AA51D4 /* Assets.xcassets in Resources */,
+				2A97A5BF28B6673400AA51D4 /* GithubUserDetailViewController.storyboard in Resources */,
 				2A97A57328B38BC800AA51D4 /* GithubUserListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +541,7 @@
 				2A97A56C28B38BC800AA51D4 /* AppDelegate.swift in Sources */,
 				2A97A5B128B6575700AA51D4 /* UIAlertHelper.swift in Sources */,
 				2A97A5AB28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift in Sources */,
+				2A97A5C228B6676400AA51D4 /* GithubUserDetailViewController.swift in Sources */,
 				2A97A59F28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift in Sources */,
 				2A97A56E28B38BC800AA51D4 /* SceneDelegate.swift in Sources */,
 			);
