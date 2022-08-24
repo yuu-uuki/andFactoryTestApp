@@ -21,6 +21,7 @@ public struct Error {
   public struct Alertmessage {
     static let validationFailed = "処理できませんでした"
     static let serviceUnavailable = "現在このサービスは利用できません"
+    static let loadingError = "読み込みに失敗しました"
     static let other = "予期せぬエラーです"
   }
   
