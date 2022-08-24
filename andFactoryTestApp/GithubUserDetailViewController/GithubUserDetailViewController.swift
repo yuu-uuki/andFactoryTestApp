@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import PKHUD
 
 class GithubUserDetailViewController: UIViewController {
   
@@ -15,15 +16,13 @@ class GithubUserDetailViewController: UIViewController {
       webView.navigationDelegate = self
     }
   }
-  private var indicatorView = UIActivityIndicatorView()
   static let identifer = "GithubUserDetailViewController"
   public var htmlUrl: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      setUpUI()
       if let url = self.htmlUrl {
-        indicatorView.startAnimating()
+        HUD.show(.progress, onView: self.view)
         
         var request = URLRequest(url: url)
         request.cachePolicy = .useProtocolCachePolicy
@@ -47,30 +46,20 @@ extension GithubUserDetailViewController: WKNavigationDelegate {
   // 読み込み終了
   func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     print("読み込み終了")
-    indicatorView.stopAnimating()
+    HUD.hide()
   }
   
   func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
     print("読み込み失敗(読み込み開始時)\(error)")
     // アラートを表示
     UIAlertHelper(title: Error.AlertTitle.error, message: Error.Alertmessage.loadingError).makeSingleAlert(self, okClosure: nil).show()
-    indicatorView.stopAnimating()
+    HUD.hide()
   }
   
   func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
     print("読み込み失敗(読み込み途中)\(error)")
     // アラートを表示
     UIAlertHelper(title: Error.AlertTitle.error, message: Error.Alertmessage.loadingError).makeSingleAlert(self, okClosure: nil).show()
-    indicatorView.stopAnimating()
-  }
-}
-
-extension GithubUserDetailViewController {
-  func setUpUI() {
-    // インジケータ設定
-    indicatorView.center = view.center
-    indicatorView.style = .large
-    indicatorView.color = .black
-    view.addSubview(indicatorView)
+    HUD.hide()
   }
 }

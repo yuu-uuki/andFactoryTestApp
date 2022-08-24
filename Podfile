@@ -7,6 +7,7 @@ target 'andFactoryTestApp' do
   
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'PKHUD'
   
   # Pods for request
   pod 'Alamofire'
