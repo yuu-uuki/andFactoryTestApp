@@ -153,21 +153,13 @@
 			children = (
 				2A97A56B28B38BC800AA51D4 /* AppDelegate.swift */,
 				2A97A56D28B38BC800AA51D4 /* SceneDelegate.swift */,
-				2A97A56F28B38BC800AA51D4 /* GithubUserListViewController.swift */,
-				2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */,
-				2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */,
-				2A97A5A228B3CB5500AA51D4 /* Users.swift */,
-				2A97A5A628B3CD7E00AA51D4 /* GithubAPIClient.swift */,
-				2A97A5A828B3D00300AA51D4 /* GithubSearchAPIModel.swift */,
-				2A97A5AA28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift */,
-				2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */,
-				2A97A5AC28B642FB00AA51D4 /* UISearchBar+Helper.swift */,
-				2A97A5AE28B652BE00AA51D4 /* ErrorManager.swift */,
-				2A97A5B028B6575700AA51D4 /* UIAlertHelper.swift */,
-				2A97A5B428B661C100AA51D4 /* URL+Helper.swift */,
-				2A97A57128B38BC800AA51D4 /* Main.storyboard */,
+				2A97A5B628B6643600AA51D4 /* GithubUserListView */,
+				2A97A5B728B6648500AA51D4 /* APIRequest */,
+				2A97A5B828B664A000AA51D4 /* Multilingual */,
+				2A97A5BB28B664EB00AA51D4 /* Alert */,
+				2A97A5BA28B664C300AA51D4 /* Extension */,
+				2A97A5BC28B6650300AA51D4 /* Storyboard */,
 				2A97A57428B38BCA00AA51D4 /* Assets.xcassets */,
-				2A97A57628B38BCA00AA51D4 /* LaunchScreen.storyboard */,
 				2A97A57928B38BCA00AA51D4 /* Info.plist */,
 			);
 			path = andFactoryTestApp;
@@ -188,6 +180,70 @@
 				2A97A58E28B38BCA00AA51D4 /* AndFactoryTestAppUITestsLaunchTests.swift */,
 			);
 			path = andFactoryTestAppUITests;
+			sourceTree = "<group>";
+		};
+		2A97A5B628B6643600AA51D4 /* GithubUserListView */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A56F28B38BC800AA51D4 /* GithubUserListViewController.swift */,
+				2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */,
+				2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */,
+				2A97A5AA28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift */,
+			);
+			path = GithubUserListView;
+			sourceTree = "<group>";
+		};
+		2A97A5B728B6648500AA51D4 /* APIRequest */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A5BD28B6652B00AA51D4 /* Model */,
+				2A97A5A628B3CD7E00AA51D4 /* GithubAPIClient.swift */,
+				2A97A5A828B3D00300AA51D4 /* GithubSearchAPIModel.swift */,
+			);
+			path = APIRequest;
+			sourceTree = "<group>";
+		};
+		2A97A5B828B664A000AA51D4 /* Multilingual */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */,
+			);
+			path = Multilingual;
+			sourceTree = "<group>";
+		};
+		2A97A5BA28B664C300AA51D4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A5AC28B642FB00AA51D4 /* UISearchBar+Helper.swift */,
+				2A97A5B428B661C100AA51D4 /* URL+Helper.swift */,
+				2A97A5AE28B652BE00AA51D4 /* ErrorManager.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2A97A5BB28B664EB00AA51D4 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A5B028B6575700AA51D4 /* UIAlertHelper.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		2A97A5BC28B6650300AA51D4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A57628B38BCA00AA51D4 /* LaunchScreen.storyboard */,
+				2A97A57128B38BC800AA51D4 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2A97A5BD28B6652B00AA51D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A97A5A228B3CB5500AA51D4 /* Users.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3D44FC45AC97B7C179DFF5F1 /* Frameworks */ = {
