@@ -6,6 +6,7 @@ target 'andFactoryTestApp' do
   use_frameworks!
   
   pod 'RxSwift'
+  pod 'RxCocoa'
   
   # Pods for request
   pod 'Alamofire'
