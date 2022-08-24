@@ -26,9 +26,9 @@ class GithubUserListTableViewCell: UITableViewCell {
     guard let user = user else {
       return
     }
-    self.userImage.backgroundColor = .lightGray
     userLabel.text = user.login
     typeLabel.text = user.type
+    self.userImage.image = user.avatarURL.convertToImage()
   }
   
   /// 画面の横幅に合わせて文字サイズを調整する

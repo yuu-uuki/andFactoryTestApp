@@ -139,7 +139,7 @@ opt_in_rules:
 - unavailable_function
 - unneeded_parentheses_in_closure_argument
 - unowned_variable_capture
-- untyped_error_in_catch
+#- untyped_error_in_catch
 - unused_declaration
 - unused_import
 - unused_private_declaration
