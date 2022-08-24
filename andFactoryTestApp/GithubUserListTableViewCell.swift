@@ -20,11 +20,15 @@ class GithubUserListTableViewCell: UITableViewCell {
     adjustLabel(label: userLabel)
     adjustLabel(label: typeLabel)
   }
-  
-  func setUp() {
+  /// セルの中身のセット
+  /// - Parameter user: ユーザー情報
+  func setUp(user: User?) {
+    guard let user = user else {
+      return
+    }
     self.userImage.backgroundColor = .lightGray
-    userLabel.text = "user"
-    typeLabel.text = "type"
+    userLabel.text = user.login
+    typeLabel.text = user.type
   }
   
   /// 画面の横幅に合わせて文字サイズを調整する

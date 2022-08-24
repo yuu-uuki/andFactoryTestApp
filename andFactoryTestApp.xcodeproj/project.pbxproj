@@ -20,6 +20,13 @@
 		2A97A59C28B3A2F800AA51D4 /* Multilingual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */; };
 		2A97A59F28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */; };
 		2A97A5A028B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */; };
+		2A97A5A328B3CB5500AA51D4 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5A228B3CB5500AA51D4 /* Users.swift */; };
+		2A97A5A728B3CD7E00AA51D4 /* GithubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5A628B3CD7E00AA51D4 /* GithubAPIClient.swift */; };
+		2A97A5A928B3D00300AA51D4 /* GithubSearchAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5A828B3D00300AA51D4 /* GithubSearchAPIModel.swift */; };
+		2A97A5AB28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5AA28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift */; };
+		2A97A5AD28B642FD00AA51D4 /* UISearchBar+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5AC28B642FB00AA51D4 /* UISearchBar+Helper.swift */; };
+		2A97A5AF28B652BF00AA51D4 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5AE28B652BE00AA51D4 /* ErrorManager.swift */; };
+		2A97A5B128B6575700AA51D4 /* UIAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A97A5B028B6575700AA51D4 /* UIAlertHelper.swift */; };
 		7A6FE4174C0BF47629CC8AAD /* Pods_andFactoryTestAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC06AF7438950D6AE5CCB5 /* Pods_andFactoryTestAppTests.framework */; };
 		9BF0B3DBFC9A19CBBC275BB6 /* Pods_andFactoryTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C5E9CA631422BC143D9C54 /* Pods_andFactoryTestApp.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +67,13 @@
 		2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multilingual.swift; sourceTree = "<group>"; };
 		2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserListTableViewCell.swift; sourceTree = "<group>"; };
 		2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GithubUserListTableViewCell.xib; sourceTree = "<group>"; };
+		2A97A5A228B3CB5500AA51D4 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		2A97A5A628B3CD7E00AA51D4 /* GithubAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIClient.swift; sourceTree = "<group>"; };
+		2A97A5A828B3D00300AA51D4 /* GithubSearchAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchAPIModel.swift; sourceTree = "<group>"; };
+		2A97A5AA28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserSearchViewModel.swift; sourceTree = "<group>"; };
+		2A97A5AC28B642FB00AA51D4 /* UISearchBar+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Helper.swift"; sourceTree = "<group>"; };
+		2A97A5AE28B652BE00AA51D4 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		2A97A5B028B6575700AA51D4 /* UIAlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertHelper.swift; sourceTree = "<group>"; };
 		627D716AF71AC93346F4E685 /* Pods-andFactoryTestAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-andFactoryTestAppTests.debug.xcconfig"; path = "Target Support Files/Pods-andFactoryTestAppTests/Pods-andFactoryTestAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79C5E9CA631422BC143D9C54 /* Pods_andFactoryTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_andFactoryTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85631D1C6F5224A0A7A58343 /* Pods-andFactoryTestAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-andFactoryTestAppTests.release.xcconfig"; path = "Target Support Files/Pods-andFactoryTestAppTests/Pods-andFactoryTestAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +154,14 @@
 				2A97A56F28B38BC800AA51D4 /* GithubUserListViewController.swift */,
 				2A97A59D28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift */,
 				2A97A59E28B3A8CE00AA51D4 /* GithubUserListTableViewCell.xib */,
+				2A97A5A228B3CB5500AA51D4 /* Users.swift */,
+				2A97A5A628B3CD7E00AA51D4 /* GithubAPIClient.swift */,
+				2A97A5A828B3D00300AA51D4 /* GithubSearchAPIModel.swift */,
+				2A97A5AA28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift */,
 				2A97A59B28B3A2F800AA51D4 /* Multilingual.swift */,
+				2A97A5AC28B642FB00AA51D4 /* UISearchBar+Helper.swift */,
+				2A97A5AE28B652BE00AA51D4 /* ErrorManager.swift */,
+				2A97A5B028B6575700AA51D4 /* UIAlertHelper.swift */,
 				2A97A57128B38BC800AA51D4 /* Main.storyboard */,
 				2A97A57428B38BCA00AA51D4 /* Assets.xcassets */,
 				2A97A57628B38BCA00AA51D4 /* LaunchScreen.storyboard */,
@@ -188,6 +209,7 @@
 				2A97A56528B38BC800AA51D4 /* Frameworks */,
 				2A97A56628B38BC800AA51D4 /* Resources */,
 				2A97A5A128B3C11C00AA51D4 /* SwiftLint Script */,
+				42B6796E112C14E90BBBF66A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,6 +247,7 @@
 				2A97A58428B38BCA00AA51D4 /* Sources */,
 				2A97A58528B38BCA00AA51D4 /* Frameworks */,
 				2A97A58628B38BCA00AA51D4 /* Resources */,
+				D81A414B297EA497EC6057FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,6 +349,23 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		42B6796E112C14E90BBBF66A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-andFactoryTestApp/Pods-andFactoryTestApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-andFactoryTestApp/Pods-andFactoryTestApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-andFactoryTestApp/Pods-andFactoryTestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7E023D712033D3E9D044085C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,6 +432,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D81A414B297EA497EC6057FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-andFactoryTestApp-andFactoryTestAppUITests/Pods-andFactoryTestApp-andFactoryTestAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-andFactoryTestApp-andFactoryTestAppUITests/Pods-andFactoryTestApp-andFactoryTestAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-andFactoryTestApp-andFactoryTestAppUITests/Pods-andFactoryTestApp-andFactoryTestAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -400,8 +457,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A97A59C28B3A2F800AA51D4 /* Multilingual.swift in Sources */,
+				2A97A5A928B3D00300AA51D4 /* GithubSearchAPIModel.swift in Sources */,
+				2A97A5A728B3CD7E00AA51D4 /* GithubAPIClient.swift in Sources */,
+				2A97A5AF28B652BF00AA51D4 /* ErrorManager.swift in Sources */,
 				2A97A57028B38BC800AA51D4 /* GithubUserListViewController.swift in Sources */,
+				2A97A5AD28B642FD00AA51D4 /* UISearchBar+Helper.swift in Sources */,
+				2A97A5A328B3CB5500AA51D4 /* Users.swift in Sources */,
 				2A97A56C28B38BC800AA51D4 /* AppDelegate.swift in Sources */,
+				2A97A5B128B6575700AA51D4 /* UIAlertHelper.swift in Sources */,
+				2A97A5AB28B3D49D00AA51D4 /* GithubUserSearchViewModel.swift in Sources */,
 				2A97A59F28B3A8CE00AA51D4 /* GithubUserListTableViewCell.swift in Sources */,
 				2A97A56E28B38BC800AA51D4 /* SceneDelegate.swift in Sources */,
 			);
