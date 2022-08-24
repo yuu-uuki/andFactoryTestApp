@@ -15,7 +15,7 @@ struct User: Codable {
   
   let login: String
   let avatarURL: URL
-  let htmlUrl: String
+  let htmlUrl: URL
   let type: String
   
   private enum CodingKeys: String, CodingKey {

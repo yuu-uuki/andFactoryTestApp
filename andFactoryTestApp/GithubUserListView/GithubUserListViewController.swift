@@ -74,6 +74,15 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
     cell.setUp(user: self.users?.items[indexPath.row])
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let storyboard = UIStoryboard(name: GithubUserDetailViewController.identifer, bundle: nil)
+    guard let vc = storyboard.instantiateViewController(withIdentifier: GithubUserDetailViewController.identifer) as? GithubUserDetailViewController else {
+      return
+    }
+    vc.url = self.users?.items[indexPath.row].htmlUrl
+    self.navigationController?.pushViewController(vc, animated: true)
+  }
 }
 
 // MARK: - 検索バー処理
