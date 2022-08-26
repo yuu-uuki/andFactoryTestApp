@@ -17,16 +17,15 @@ class GithubUserDetailViewController: UIViewController {
     }
   }
   static let identifer = "GithubUserDetailViewController"
-  public var htmlUrl: URL?
+  var htmlUrl: URL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
       if let url = self.htmlUrl {
         HUD.show(.progress, onView: self.view)
-        
         var request = URLRequest(url: url)
         request.cachePolicy = .useProtocolCachePolicy
-        request.timeoutInterval = 1
+        request.timeoutInterval = 10
         self.webView.load(request)
       }
     }

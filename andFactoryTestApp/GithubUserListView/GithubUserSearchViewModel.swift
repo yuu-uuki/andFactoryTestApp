@@ -8,27 +8,62 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Alamofire
 
 class GithubUserSearchViewModel {
   
-  var items: Observable<Users>?
+  var searchEvent: Observable<Users>?
+  /// 講読解除
   private let disposeBag = DisposeBag()
+  private let model = GithubSearchAPIModel()
   /// 最初に表示するユーザー
   var users: [User] = [] {
     didSet {
       reloadHandler()
     }
   }
+  /// 検索したユーザー
+  var searchUsers: Users? {
+    didSet {
+      reloadHandler()
+    }
+  }
+  /// エラー情報
+  var error: AFError? {
+    didSet {
+      alertHandler()
+    }
+  }
   
-  init(searchWord: Observable<String>, model: GithubSearchAPIModel) {
+  // viewの更新処理
+  var reloadHandler: () -> Void = { }
+  var alertHandler: () -> Void = { }
+  
+  init(searchWord: Observable<String>) {
     // 紐付け
-    self.items = searchWord
+    self.searchEvent = searchWord
       .filter { $0.count >= 1 }
       .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
       .flatMapLatest({ searchWord in
-        return model.searchUser(["q": searchWord, "per_page": "30"])
+        // ユーザー検索
+        return self.model.searchUser(["q": searchWord])
           .observe(on: MainScheduler.instance)
       })
+    
+    // ユーザー検索後のハンドリング
+    self.searchEvent?.subscribe({ [weak self] event in
+      switch event {
+      case .next(let users):
+        // ユーザー情報セット
+        self?.searchUsers = users
+      case .error(let error):
+        // アラートを表示
+        self?.error = error.asAFError
+      case .completed:
+        break
+      }
+    })
+    .disposed(by: disposeBag)
   }
   
   /// ユーザー一覧取得
@@ -42,4 +77,5 @@ class GithubUserSearchViewModel {
       }
     }
   }
+  
 }

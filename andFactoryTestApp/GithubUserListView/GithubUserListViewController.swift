@@ -13,7 +13,7 @@ class GithubUserListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView! {
     didSet {
-      tableViewSetUp()
+      initTableView()
     }
   }
   
@@ -22,38 +22,17 @@ class GithubUserListViewController: UIViewController {
       searchBar.delegate = self
     }
   }
-  /// ユーザー情報
-  private var users: Users?
   /// 講読解除
   private let disposeBag = DisposeBag()
+  /// viewModel作成
+  private lazy var viewModel = GithubUserSearchViewModel(searchWord: searchBar.rx.text.orEmpty.asObservable())
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // ナビゲーションバーの設定
-    naviBarSetUp()
-    
-    // ViewModelの作成
-    let viewModel = GithubUserSearchViewModel(searchWord: searchBar.rx.text.orEmpty.asObservable(), model: GithubSearchAPIModel())
-    
-    // ViewModelのitemsを監視
-    viewModel.items?.subscribe({ [weak self] event in
-      switch event {
-      case .next(let users):
-        // ユーザー情報セット
-        self?.users = users
-        self?.tableView.reloadData()
-      case .error(let error):
-        // アラートを表示
-        let message = error.asAFError?.alertText
-        UIAlertHelper(title: Error.AlertTitle.error, message: message ?? "").makeSingleAlert(self ?? UIViewController(), okClosure: nil).show()
-        // テーブルを空にする
-        self?.users = nil
-        self?.tableView.reloadData()
-      case .completed:
-        break
-      }
-    })
-    .disposed(by: disposeBag)
+    initNaviBar()
+    initViewModel()
+    viewModel.getUserList()
   }
 }
 
@@ -61,7 +40,11 @@ class GithubUserListViewController: UIViewController {
 extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.users?.items.count ?? 0
+    if viewModel.searchUsers?.items.count ?? 0 > 0 {
+      return viewModel.searchUsers?.items.count ?? 0
+    } else {
+      return viewModel.users.count
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,7 +54,11 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: GithubUserListTableViewCell.identifier, for: indexPath) as! GithubUserListTableViewCell
     // セルの設定
-    cell.setUp(user: self.users?.items[indexPath.row])
+    if viewModel.searchUsers?.items.count ?? 0 > 0 {
+      cell.setUp(user: viewModel.searchUsers?.items[indexPath.row])
+    } else {
+      cell.setUp(user: viewModel.users[indexPath.row])
+    }
     return cell
   }
   
@@ -84,7 +71,11 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
     guard let vc = storyboard.instantiateViewController(withIdentifier: GithubUserDetailViewController.identifer) as? GithubUserDetailViewController else {
       return
     }
-    vc.htmlUrl = self.users?.items[indexPath.row].htmlUrl
+    if viewModel.searchUsers?.items.count ?? 0 > 0 {
+      vc.htmlUrl = viewModel.searchUsers?.items[indexPath.row].htmlUrl
+    } else {
+      vc.htmlUrl = viewModel.users[indexPath.row].htmlUrl
+    }
     self.navigationController?.pushViewController(vc, animated: true)
   }
 }
@@ -99,18 +90,26 @@ extension GithubUserListViewController: UISearchBarDelegate {
       self.emptyTable()
     }
   }
-  
-  /// テーブルの中身を空にする
-  func emptyTable() {
-    self.users = nil
-    tableView.reloadData()
-  }
 }
 
 // MARK: - 画面初期設定
 extension GithubUserListViewController {
+  
+  func initViewModel() {
+    
+    viewModel.reloadHandler = { [weak self] in
+      self?.tableView.reloadData()
+    }
+    
+    viewModel.alertHandler = { [weak self] in
+      let message = self?.viewModel.error?.alertText
+      self?.showAlert(message: message)
+      // テーブルを空にする
+      self?.emptyTable()
+    }
+  }
   /// ナビゲーションバーの設定
-  private func naviBarSetUp() {
+  private func initNaviBar() {
     let appearance = UINavigationBarAppearance()
     appearance.backgroundColor = .white
     UINavigationBar.appearance().scrollEdgeAppearance = appearance
@@ -118,12 +117,26 @@ extension GithubUserListViewController {
   }
   
   /// テーブルビューの設定
-  private func tableViewSetUp() {
+  private func initTableView() {
     // スクロールで検索キーボード閉じる
     tableView.keyboardDismissMode = .onDrag
     tableView.delegate = self
     tableView.dataSource = self
     tableView.rowHeight = UITableView.automaticDimension
     tableView.register(UINib(nibName: GithubUserListTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: GithubUserListTableViewCell.identifier)
+  }
+}
+
+// MARK: - UI更新処理
+extension GithubUserListViewController {
+  /// テーブルの中身を空にする
+  func emptyTable() {
+    viewModel.searchUsers = nil
+    tableView.reloadData()
+  }
+  
+  /// アラートの表示
+  func showAlert(message: String?) {
+    UIAlertHelper(title: Error.AlertTitle.error, message: message ?? "").makeSingleAlert(self, okClosure: nil).show()
   }
 }

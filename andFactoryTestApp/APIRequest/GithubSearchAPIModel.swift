@@ -10,12 +10,12 @@ import RxSwift
 import Alamofire
 
 class GithubSearchAPIModel {
-  
+  /// APIクライアント
   let client = GithubAPIClient()
   /// ユーザー検索
   /// - Parameter parameter: ユーザー名
   /// - Returns: 成功値 or 失敗値
-  func searchUser(_ parameter: [String: Any]) -> Observable<Users> {
+  func searchUser(_ parameter: [String: String]) -> Observable<Users> {
     return Observable<Users>.create { observer -> Disposable in
       let request = self.client.getRequest(parameter).validate(statusCode: 200..<300).responseDecodable(of: Users.self, decoder: JSONDecoder()) { response in
         switch response.result {
