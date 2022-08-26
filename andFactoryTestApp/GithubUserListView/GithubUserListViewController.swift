@@ -24,6 +24,7 @@ class GithubUserListViewController: UIViewController {
   }
   /// 講読解除
   private let disposeBag = DisposeBag()
+  private let cellHeight: CGFloat = 10
   /// viewModel作成
   private lazy var viewModel = GithubUserSearchViewModel(searchWord: searchBar.rx.text.orEmpty.asObservable())
   
@@ -40,8 +41,6 @@ class GithubUserListViewController: UIViewController {
 extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if viewModel.searchUsers != nil {
-      return viewModel.searchUsers?.items.count ?? 0
     if let vm = viewModel.searchUsers {
       emptyAlert(count: vm.items.count)
       return vm.items.count
@@ -51,14 +50,14 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return self.tableView.bounds.height / 10
+    return self.tableView.bounds.height / cellHeight
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: GithubUserListTableViewCell.identifier, for: indexPath) as! GithubUserListTableViewCell
     // セルの設定
-    if viewModel.searchUsers != nil {
-      cell.setUp(user: viewModel.searchUsers?.items[indexPath.row])
+    if let vm = viewModel.searchUsers {
+      cell.setUp(user: vm.items[indexPath.row])
     } else {
       cell.setUp(user: viewModel.users[indexPath.row])
     }
@@ -74,8 +73,8 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
     guard let vc = storyboard.instantiateViewController(withIdentifier: GithubUserDetailViewController.identifer) as? GithubUserDetailViewController else {
       return
     }
-    if viewModel.searchUsers?.items.count ?? 0 > 0 {
-      vc.htmlUrl = viewModel.searchUsers?.items[indexPath.row].htmlUrl
+    if let vm = viewModel.searchUsers {
+      vc.htmlUrl = vm.items[indexPath.row].htmlUrl
     } else {
       vc.htmlUrl = viewModel.users[indexPath.row].htmlUrl
     }
@@ -106,7 +105,7 @@ extension GithubUserListViewController {
     
     viewModel.alertHandler = { [weak self] in
       let message = self?.viewModel.error?.alertText
-      UIAlertHelper(title: Error.AlertTitle.error, message: message ?? "").makeSingleAlert(self ?? GithubUserListViewController(), okClosure: nil).show()
+      UIAlertHelper(title: ErrorAlert.title, message: message ?? "").makeSingleAlert(self ?? GithubUserListViewController(), okClosure: nil).show()
       // テーブルを空にする
       self?.emptyTable()
     }

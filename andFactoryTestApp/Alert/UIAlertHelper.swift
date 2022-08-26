@@ -36,7 +36,7 @@ class UIAlertHelper {
     /// アクションを追加
     func make() -> UIAlertController {
       let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: Error.AlertAction.ok, style: .default, handler: { _ in if let closure = closure {
+      alert.addAction(UIAlertAction(title: AlertAction.ok, style: .default, handler: { _ in if let closure = closure {
         closure() } }))
       return alert
     }

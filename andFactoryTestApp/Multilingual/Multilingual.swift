@@ -12,21 +12,26 @@ public struct Titlename {
   static let listView = "search user"
 }
 
-public struct Error {
+public struct ErrorAlert {
   
-  public struct AlertTitle {
-    static let error = "エラー"
-  }
+  static let title = "エラー"
   
-  public struct Alertmessage {
+  public struct Message {
     static let validationFailed = "処理できませんでした"
     static let serviceUnavailable = "現在このサービスは利用できません"
     static let loadingError = "読み込みに失敗しました"
     static let other = "予期せぬエラーです"
   }
+}
+
+public struct Confirm {
+  static let title = "確認"
   
-  public struct AlertAction {
-    static let ok = "OK"
+  public struct Message {
+    static let emptyUser = "ユーザー情報はありません"
   }
-  
+}
+
+public struct AlertAction {
+  static let ok = "OK"
 }

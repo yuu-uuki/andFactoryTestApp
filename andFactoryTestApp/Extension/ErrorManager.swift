@@ -11,9 +11,9 @@ import Alamofire
 extension AFError {
   public var alertText: String {
     switch self.responseCode {
-    case 422: return Error.Alertmessage.validationFailed
-    case 503: return Error.Alertmessage.serviceUnavailable
-    default: return Error.Alertmessage.serviceUnavailable
+    case 422: return ErrorAlert.Message.validationFailed
+    case 503: return ErrorAlert.Message.serviceUnavailable
+    default: return ErrorAlert.Message.serviceUnavailable
     }
   }
 }

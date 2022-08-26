@@ -51,14 +51,14 @@ extension GithubUserDetailViewController: WKNavigationDelegate {
   func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
     print("読み込み失敗(読み込み開始時)\(error)")
     // アラートを表示
-    UIAlertHelper(title: Error.AlertTitle.error, message: Error.Alertmessage.loadingError).makeSingleAlert(self, okClosure: nil).show()
+    UIAlertHelper(title: ErrorAlert.title, message: ErrorAlert.Message.loadingError).makeSingleAlert(self, okClosure: nil).show()
     HUD.hide()
   }
   
   func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
     print("読み込み失敗(読み込み途中)\(error)")
     // アラートを表示
-    UIAlertHelper(title: Error.AlertTitle.error, message: Error.Alertmessage.loadingError).makeSingleAlert(self, okClosure: nil).show()
+    UIAlertHelper(title: ErrorAlert.title, message: ErrorAlert.Message.loadingError).makeSingleAlert(self, okClosure: nil).show()
     HUD.hide()
   }
 }
