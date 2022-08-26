@@ -103,7 +103,7 @@ extension GithubUserListViewController {
     
     viewModel.alertHandler = { [weak self] in
       let message = self?.viewModel.error?.alertText
-      self?.showAlert(message: message)
+      UIAlertHelper(title: Error.AlertTitle.error, message: message ?? "").makeSingleAlert(self ?? GithubUserListViewController(), okClosure: nil).show()
       // テーブルを空にする
       self?.emptyTable()
     }
@@ -133,10 +133,5 @@ extension GithubUserListViewController {
   func emptyTable() {
     viewModel.searchUsers = nil
     tableView.reloadData()
-  }
-  
-  /// アラートの表示
-  func showAlert(message: String?) {
-    UIAlertHelper(title: Error.AlertTitle.error, message: message ?? "").makeSingleAlert(self, okClosure: nil).show()
   }
 }
