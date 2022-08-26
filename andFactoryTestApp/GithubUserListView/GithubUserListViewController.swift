@@ -40,7 +40,7 @@ class GithubUserListViewController: UIViewController {
 extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if viewModel.searchUsers?.items.count ?? 0 > 0 {
+    if viewModel.searchUsers != nil {
       return viewModel.searchUsers?.items.count ?? 0
     } else {
       return viewModel.users.count
@@ -54,7 +54,7 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: GithubUserListTableViewCell.identifier, for: indexPath) as! GithubUserListTableViewCell
     // セルの設定
-    if viewModel.searchUsers?.items.count ?? 0 > 0 {
+    if viewModel.searchUsers != nil {
       cell.setUp(user: viewModel.searchUsers?.items[indexPath.row])
     } else {
       cell.setUp(user: viewModel.users[indexPath.row])
