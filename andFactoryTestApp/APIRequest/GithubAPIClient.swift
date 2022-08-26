@@ -21,6 +21,10 @@ class GithubAPIClient: APIClient {
   /// - Returns: レスポンス
   func getRequest(_ parameter: [String: Any]) -> DataRequest {
     return AF.request(url, method: .get, parameters: parameter, encoding: URLEncoding.default, headers: nil)
+  var url = "https://api.github.com/users"
+  /// ユーザー一覧取得
+  func getUserList() -> DataRequest {
+    return AF.request(url, method: .get, encoding: URLEncoding.default, headers: nil)
   }
   
 }

@@ -13,6 +13,12 @@ class GithubUserSearchViewModel {
   
   var items: Observable<Users>?
   private let disposeBag = DisposeBag()
+  /// 最初に表示するユーザー
+  var users: [User] = [] {
+    didSet {
+      reloadHandler()
+    }
+  }
   
   init(searchWord: Observable<String>, model: GithubSearchAPIModel) {
     // 紐付け
@@ -23,5 +29,17 @@ class GithubUserSearchViewModel {
         return model.searchUser(["q": searchWord, "per_page": "30"])
           .observe(on: MainScheduler.instance)
       })
+  }
+  
+  /// ユーザー一覧取得
+  func getUserList() {
+    // ユーザー一覧取得
+    model.getUserList { users, error in
+      if let err = error {
+        self.error = err
+      } else {
+        self.users = users
+      }
+    }
   }
 }

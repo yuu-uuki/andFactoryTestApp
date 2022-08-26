@@ -30,4 +30,21 @@ class GithubSearchAPIModel {
       return Disposables.create { request.cancel() }
     }
   }
+  
+  /// 適当なユーザー一覧を返却する
+  /// - Returns: ユーザー一覧
+  func getUserList(completion: @escaping(_ users: [User], _ error: AFError?) -> Void) {
+    var resultUsers: [User] = []
+    var resultError: AFError?
+    self.client.getUserList().validate(statusCode: 200..<300).responseDecodable(of: [User].self, decoder: JSONDecoder()) { response in
+      switch response.result {
+      case .success(let users):
+        resultUsers = users
+        completion(resultUsers, resultError)
+      case .failure(let error):
+        resultError = error
+        completion(resultUsers, resultError)
+      }
+    }
+  }
 }
