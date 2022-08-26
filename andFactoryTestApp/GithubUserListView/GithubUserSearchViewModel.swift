@@ -43,7 +43,7 @@ class GithubUserSearchViewModel {
     // 紐付け
     self.searchEvent = searchWord
       .filter { $0.count >= 1 }
-      .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+      .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
       .flatMapLatest({ searchWord in
         // ユーザー検索
         return self.model.searchUser(["q": searchWord])
