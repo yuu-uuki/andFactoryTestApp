@@ -42,6 +42,9 @@ extension GithubUserListViewController: UITableViewDelegate, UITableViewDataSour
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if viewModel.searchUsers != nil {
       return viewModel.searchUsers?.items.count ?? 0
+    if let vm = viewModel.searchUsers {
+      emptyAlert(count: vm.items.count)
+      return vm.items.count
     } else {
       return viewModel.users.count
     }
@@ -133,5 +136,11 @@ extension GithubUserListViewController {
   func emptyTable() {
     viewModel.searchUsers = nil
     tableView.reloadData()
+  }
+  
+  func emptyAlert(count: Int) {
+    if count <= 0 {
+      UIAlertHelper(title: Confirm.title, message: Confirm.Message.emptyUser).makeSingleAlert(self, okClosure: nil).show()
+    }
   }
 }
